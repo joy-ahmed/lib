@@ -10,12 +10,13 @@ class Author(models.Model):
     def __str__(self):
         return self.user.username
     
-
-
-
+ 
 
 class Book(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     publish_date = models.DateField(auto_now_add=True, null=True, blank=True)
     iamge = models.ImageField(upload_to="books/", blank=True, null=True)
+    
+    def __str__(self):
+        return self.title
